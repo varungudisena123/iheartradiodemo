@@ -1,24 +1,35 @@
-package com.iheartradio.model;
+package com.iheartradio.demo.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Station {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private String stationId;
+	@GeneratedValue
+	private long stationId;
 	private String name;
 	private boolean hdEnabled;
 	private String callSign;
 	
-	public String getStationId() {
+	public Station() {
+		super();
+	}
+	
+	public Station(long stationId, String name, boolean hdEnabled, String callSign) {
+		super();
+		this.stationId = stationId;
+		this.name = name;
+		this.hdEnabled = hdEnabled;
+		this.callSign = callSign;
+	}
+	
+	public long getStationId() {
 		return stationId;
 	}
-	public void setStationId(String stationId) {
+	public void setStationId(long stationId) {
 		this.stationId = stationId;
 	}
 	public String getName() {
